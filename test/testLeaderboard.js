@@ -28,9 +28,7 @@ describe('CheckLeaderboard', () => {
 				.get('/usersBetweenRanks?hr=2&lr=1')
 				.end((err,res) => {
 					res.should.have.status(200);
-					// res.body.should.be.a('array');
-					// var responseArray = res.body;
-					// if(arraysEqual(responseArray,["Can check balance","Can deposit","Can Transfer","Can withdraw"]));
+					res.body.should.be.a('object');
 					console.log(res.body)
 					done();
 				})
@@ -44,9 +42,6 @@ describe('CheckLeaderboard', () => {
 				.put('/updateScore?uid=uid3&score=1')
 				.end((err,res) => {
 					res.should.have.status(200);
-					// res.body.should.be.a('array');
-					// var responseArray = res.body;
-					// if(arraysEqual(responseArray,["Can check balance","Can deposit","Can Transfer","Can withdraw"]));
 					console.log(res.body)
 					done();
 				})
@@ -60,9 +55,6 @@ describe('CheckLeaderboard', () => {
 				.delete('/deleteUser/uid2')
 				.end((err,res) => {
 					res.should.have.status(200);
-					// res.body.should.be.a('array');
-					// var responseArray = res.body;
-					// if(arraysEqual(responseArray,["Can check balance","Can deposit","Can Transfer","Can withdraw"]));
 					console.log(res.body)
 					done();
 				})
@@ -76,9 +68,6 @@ describe('CheckLeaderboard', () => {
 				.get('/user/uid1')
 				.end((err,res) => {
 					res.should.have.status(200);
-					// res.body.should.be.a('array');
-					// var responseArray = res.body;
-					// if(arraysEqual(responseArray,["Can check balance","Can deposit","Can Transfer","Can withdraw"]));
 					console.log(res.body)
 					done();
 				})
@@ -93,9 +82,6 @@ describe('CheckLeaderboard', () => {
 				.send({uid:"uid10",score:4.5})
 				.end((err,res) => {
 					res.should.have.status(200);
-					// res.body.should.be.a('array');
-					// var responseArray = res.body;
-					// if(arraysEqual(responseArray,["Can check balance","Can deposit","Can Transfer","Can withdraw"]));
 					console.log(res.body)
 					done();
 				})
