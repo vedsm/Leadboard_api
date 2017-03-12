@@ -95,6 +95,8 @@ app.put('/updateScore', (req,res) => {
 	}
 
 	console.log("after update->",rankData,userData);
+	fs.writeFileSync(rankFile,JSON.stringify(rankData));
+	fs.writeFileSync(userFile,JSON.stringify(userData));
 	res.status(200).send({rank:currRank});
 })
 
@@ -122,7 +124,9 @@ app.delete('/deleteUser/:uid', (req,res) => {
 			tempUser = rankData[tempRank];
 		}
 
-		console.log("after modification",rankData,userData)
+		console.log("after modification",rankData,userData);
+			fs.writeFileSync(rankFile,JSON.stringify(rankData));
+		fs.writeFileSync(userFile,JSON.stringify(userData));
 		res.status(200).send(true);
 	}
 
@@ -189,7 +193,8 @@ app.post('/addUser', (req,res) => {
 	}
 
 	console.log("after addition",rankData,userData)
-
+	fs.writeFileSync(rankFile,JSON.stringify(rankData));
+	fs.writeFileSync(userFile,JSON.stringify(userData));
 	res.status(200).send({rank:currRank})
 })
 
